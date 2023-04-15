@@ -10,5 +10,9 @@ router.post('/get_parking_register', addnew)
 
 //exit
 
+
+
+
+
 // export router
 module.exports = router;
