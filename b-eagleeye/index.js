@@ -19,6 +19,8 @@ app.use(bodyParser.json());
 app.use(cors()); 
 
 
+app.use('/api/',require('./Routes/parking_register.js'));
+
 app.get("/",(req,res)=>{
     res.send("Server is running ....")
 
