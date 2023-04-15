@@ -1,7 +1,7 @@
 const Parking_register = require('../Models/Parking_register');
 
 
-module.exports.get = ()=>{
+module.exports.get = 
     async (req, res) => {
         // get all parking details
         const details = await Parking_register.find()
@@ -20,9 +20,9 @@ module.exports.get = ()=>{
             })
         }
     }
-}
 
-module.exports.addnew =()=>{
+
+module.exports.addnew =
 
     async (req, res) => {
         // get all parking details
@@ -44,4 +44,3 @@ module.exports.addnew =()=>{
         }
     }
 
-}
