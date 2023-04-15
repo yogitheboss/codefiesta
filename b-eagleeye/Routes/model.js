@@ -7,11 +7,6 @@ router.post("/model/entry", async (req, res) => {
     try{
         console.log(req.body);
         res.json({body:req.body})
-        // const {car_number,mode} = req.body
-        // console.log(car_number,mode);
-        // const details = await Parking_register.find({"car_number":car_number})
-        // console.log(details);
-        // res.json(details)
     }catch(err){
         console.log(err);
         res.json({
@@ -24,27 +19,6 @@ router.post("/model/entry", async (req, res) => {
 })
 
 
-router.post("/model/entry", async (req, res) => {
-    // get all parking details
-    try{
-        console.log(req.body);
-        res.json({body:req.body})
-        
-        // const {car_number,mode} = req.body
-        // console.log(car_number,mode);
-        // const details = await Parking_register.find({"car_number":car_number})
-        // console.log(details);
-        // res.json(details)
-    }catch(err){
-        console.log(err);
-        res.json({
-            success: false,
-            message: "No details found"
-        })
-    }
-    
-    
-})
 
 
 
