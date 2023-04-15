@@ -17,6 +17,7 @@ const registerSchema = new Schema({
     }
 });
 
+
 // for creating register model
 module.exports = mongoose.model('parking_register', registerSchema);
 
