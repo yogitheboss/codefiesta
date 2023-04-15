@@ -11,7 +11,7 @@ router.post('/get_parking_register', addnew)
 
 //exit
 
-router.get("/exit/findposition",findParkedCar)
+router.get("/model/exit",findParkedCar)
 
 
 
