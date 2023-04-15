@@ -1,4 +1,3 @@
-
 const connection = () => {
     const mongoose = require("mongoose");
     const Url = process.env.MONGO_DB;
