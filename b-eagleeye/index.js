@@ -20,6 +20,8 @@ app.use(cors());
 
 
 app.use('/api/',require('./Routes/parking_register.js'));
+app.use('/api/',require('./Routes/accounts.js'));
+app.use('/api/',require('./Routes/model.js'));
 
 app.get("/",(req,res)=>{
     res.send("Server is running ....")
