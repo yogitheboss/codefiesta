@@ -11,7 +11,7 @@ router.post('/get_parking_register', addnew)
 //exit
 
 
-
+// http://localhost:8080/api/models
 
 
 // export router

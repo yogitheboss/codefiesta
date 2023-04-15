@@ -5,8 +5,8 @@ const bodyParser = require("body-parser")
 const cors = require('cors')
 const connection = require('./db')
 
-
 const port = process.env.PORT 
+
 
 connection();  //database connection
 
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Parses the text as json
 app.use(bodyParser.json());
 
-//route handling
+// route handling
 app.use(cors()); 
 
 
