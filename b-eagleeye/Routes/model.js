@@ -9,12 +9,14 @@ const { findParkedCar } = require('../Controllers/Parking_registerexitController
 router.post("/model/entry", async (req, res) => {
     // get all parking details
     try{
-        console.log(req.body);
-        res.json({body:req.body})
-            
-
-
-
+        const data=req.body.data
+        // console.log(req.body);
+        // res.json({body:req.body})
+        const plot = await Parking_register.find({"car_number":data}); 
+        res.json({
+            success: true,
+            details: plot
+        })
     }catch(err){
         console.log(err);
         res.json({
