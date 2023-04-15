@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router()
-const Parking_register = require('../Models/Parking_register')
+const Parking_register = require('../Models/Parking_register');
+const { findParkedCar } = require('../Controllers/Parking_registerexitController');
 
 router.post("/model/entry", async (req, res) => {
     // get all parking details
@@ -45,6 +46,10 @@ router.post("/model/entry", async (req, res) => {
     
     
 })
+
+
+
+router.get("/model/exit",findParkedCar)
 
 
 
