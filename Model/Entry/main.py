@@ -1,26 +1,27 @@
 import cv2
 import pytesseract
 import numpy as np
-from collections import Counter
-
+import requests
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 cascade = cv2.CascadeClassifier("haarcascade_russian_plate_number.xml")
 
+gotit = False
+cap = cv2.VideoCapture(0)
 
-coll = []
-def extract_num(cap2):
-    ret, img = cap2.read()
 
-    while True:
-        ret, img = cap.read()
+
+while True:
+    ret, img = cap.read()
+    k = cv2.waitKey(1)
+    if ret:
         cv2.imshow("img", img)
-        cv2.waitKey(1) & 0xFF == ord('q')
+
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         nplate = cascade.detectMultiScale(gray, 1.1, 4)
         for (x, y, w, h) in nplate:
-            a,b = (int(0.02 * img.shape[0]), int(0.025 * img.shape[1]))
+            (a,b) = (int(0.02 * img.shape[0]), int(0.025 * img.shape[1]))
             plate = img[y + a:y + h - a, x:x + w - b, :]
 
             kernel = np.ones((1, 1), np.uint8)
@@ -31,15 +32,21 @@ def extract_num(cap2):
             read = pytesseract.image_to_string(plate)
             read = ''.join(e for e in read if e.isalnum())
             if read:
-                if (len(read) == 10) & (read[6:10].isdigit()):
-                    print (read)
-
-        if not ret:
+                if (len(read) == 10) & (read[0:1].isalpha()) & (read[4:5].isalpha()) & (read[6:10].isdigit()):
+                    data = read
+                    gotit = True
+        if k & 0xFF == ord('q'):
             break
+        elif gotit:
+            break
+    else:
+        break
 
 
+urlEntry = 'http://localhost:8080/api/model/entry'
+myobj = {'data': data}
 
-cap = cv2.VideoCapture(0)
-extract_num(cap)
-
-
+x = requests.post(urlEntry, json = myobj)
+# print(x)
+cap.release()
+cv2.destroyAllWindows()
