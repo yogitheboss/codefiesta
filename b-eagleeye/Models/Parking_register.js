@@ -3,8 +3,12 @@ const { Schema } = mongoose;
 
 // for creating register schema
 const registerSchema = new Schema({
+    occupied: {
+        type: Boolean,
+        required: true
+    },
     parkingslot_id:{
-        type:Boolean,
+        type: String,
         required:true
     },
     car_number: {
@@ -14,5 +18,5 @@ const registerSchema = new Schema({
 });
 
 // for creating register model
-module.exports = mongoose.model('register', registerSchema);
+module.exports = mongoose.model('parking_register', registerSchema);
 
