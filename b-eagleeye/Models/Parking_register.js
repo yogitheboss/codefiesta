@@ -1,20 +1,27 @@
-const mongoose =require( 'mongoose');
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 // for creating register schema
 const registerSchema = new Schema({
     occupied: {
-        type: Boolean,
+        type: "String",
         required: true
     },
-    parkingslot_id:{
+    parkingslot_id: {
         type: String,
-        required:true
+        required: true
     },
     car_number: {
         type: String,
         required: true
+    },
+    entry_time: {
+        type: String,
+    },
+    exit_time: {
+        type: String,
     }
+
 });
 
 
