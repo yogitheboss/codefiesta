@@ -131,7 +131,9 @@ const Body1 = () => {
 <<<<<<< HEAD
 
             <div className="p_container">
+=======
             <div className="p_container {style}">
+>>>>>>> upstream/master
                 <div className="item parking_space" >1</div>
                 <div className="item parking_space" >2</div>
                 <div className="item parking_space" >3</div>
