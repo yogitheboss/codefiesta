@@ -5,7 +5,7 @@ const bodyParser = require("body-parser")
 const cors = require('cors')
 const connection = require('./db')
 
-const port = process.env.PORT 
+const port = process.env.PORT || 3000
 
 
 connection();  //database connection
@@ -26,12 +26,7 @@ app.use('/api/',require('./Routes/model.js'));
 app.get("/",(req,res)=>{
     res.sendFile(__dirname+"/views/index.html");
 })
-// app.get("/redirect",(req,res)=>{
-//     // res.sendFile(__dirname+"/views/redirect.html");
-//     res.redirect("http://localhost:5173/navigate/30")
-// })
-
-
+  
 app.listen(port,()=>{
-    console.log(`server running... on http://localhost:${port}`)
+    console.log(`server running... on ${port}`)
 })
