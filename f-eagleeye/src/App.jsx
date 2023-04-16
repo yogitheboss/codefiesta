@@ -19,7 +19,6 @@ function App() {
 
           <Route path='/navigate' element={<>
             <Navbar />
-            <h1>Navigate</h1>
             <Body1 />
             <Footer />
           </>} />

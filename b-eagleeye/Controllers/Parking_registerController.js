@@ -1,13 +1,12 @@
 const Parking_register = require('../Models/Parking_register');
 
 
-module.exports.get = 
+module.exports.get =
     async (req, res) => {
         // get all parking details
-        const details = await Parking_register.find()
         try {
             // if details are found then send response 
-            console.log(details);
+            const details = await Parking_register.find()
             res.json({
                 success: true,
                 details: details
@@ -26,7 +25,7 @@ module.exports.addnew =
 
     async (req, res) => {
         // get all parking details
-        body=req.body
+        body = req.body
         const details = await Parking_register.insertMany(body)
         try {
             // if details are found then send response 
@@ -43,4 +42,6 @@ module.exports.addnew =
             })
         }
     }
+
+
 
