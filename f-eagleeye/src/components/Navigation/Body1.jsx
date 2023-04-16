@@ -128,8 +128,10 @@ const Body1 = () => {
 
     return (
         <div>
+<<<<<<< HEAD
 
             <div className="p_container">
+            <div className="p_container {style}">
                 <div className="item parking_space" >1</div>
                 <div className="item parking_space" >2</div>
                 <div className="item parking_space" >3</div>
